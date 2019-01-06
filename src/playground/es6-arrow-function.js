@@ -19,10 +19,3 @@
 const getFirstName = (fullName) => fullName.split(' ')[0];
 console.log(getFirstName('Setr Pima'));
 
-
-// if (fullName) {
-//     firstName = fullName.split(' ')[0];
-//     console.log(firstName);
-// }
-
-// console.log(firstName);
