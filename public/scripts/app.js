@@ -1,81 +1,34 @@
 'use strict';
 
-console.log('App.js is running!');
-
-var app = {
-    title: 'Test title',
-    subtitle: 'Test subtitle',
-    options: ['One', 'Two', 'Three']
+var add = function add(a, b) {
+    //console.log(arguments);
+    return a + b;
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        app.title
-    ),
-    app.subtitle && React.createElement(
-        'p',
-        null,
-        app.subtitle
-    ),
-    React.createElement(
-        'p',
-        null,
-        app.options.length > 0 ? 'Here are your options' : 'No options'
-    ),
-    React.createElement(
-        'ol',
-        null,
-        React.createElement(
-            'li',
-            null,
-            'Item one'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'Item two'
-        )
-    )
-);
+console.log(add(55, 1));
 
 var user = {
     name: 'Michal',
-    age: 25,
-    location: 'Prague'
-};
+    cities: ['Praha', 'Kacov', 'Vienna'],
+    printPlacesLived: function printPlacesLived() {
+        var _this = this;
 
-function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            'p',
-            null,
-            'Location: ',
-            location
-        );
+        return this.cities.map(function (city) {
+            return _this.name + ' has lived in ' + city;
+        });
     }
-}
+};
+console.log(user.printPlacesLived());
 
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        user.name ? user.name : 'Anonymously'
-    ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
-    ),
-    getLocation(user.location)
-);
+var multiplier = {
+    numbers: [10, 20, 30],
+    multiplyBy: 5,
+    multiply: function multiply() {
+        var _this2 = this;
 
-var appRoot = document.getElementById('app');
-
-ReactDOM.render(template, appRoot);
+        return this.numbers.map(function (number) {
+            return _this2.multiplyBy * number;
+        });
+    }
+};
+console.log(multiplier.multiply());
